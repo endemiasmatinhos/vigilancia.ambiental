@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigilância em Saúde - Controle de Endemias | Matinhos - PR</title>
+    <meta name="description" content="Vigilância em Saúde e Controle de Endemias de Matinhos - PR. Prevenção e combate à Dengue, Zika e Chikungunya.">
+    <meta name="keywords" content="dengue, zika, chikungunya, aedes aegypti, matinhos, vigilância sanitária, saúde pública">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        .header-top {
+            background: linear-gradient(135deg, #1e5799 0%, #2989d8 100%);
+            color: white;
+            padding: 15px 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 48px;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .logo-text p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-warning {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background: #ee5a52;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-social {
+            background: #e1306c;
+            color: white;
+        }
+
+        .btn-social:hover {
+            background: #c13584;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(225, 48, 108, 0.4);
+        }
+
+        /* Navigation */
+        nav {
+            background: #2c3e50;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #34495e;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(30, 87, 153, 0.9), rgba(41, 137, 216, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%232980b9" width="1200" height="400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Alert Banner */
+        .alert-banner {
+            background: linear-gradient(135deg, #ff6b6b, #ff8787);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .alert-banner h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .alert-banner p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        /* Grid Section */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #2980b9;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            padding: 8px 0;
+            color: #666;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .card li:before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: #f8f9fa;
+            padding: 50px 20px;
+            margin-top: 50px;
+        }
+
+        .info-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-section h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #2c3e50;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item i {
+            font-size: 32px;
+            color: #3498db;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: #3498db;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .logo-section {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+            }
+
+            .hero h2 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 25px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card, .alert-banner {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .btn-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 15px rgba(255, 107, 107, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-top">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon">🦟</div>
+                <div class="logo-text">
+                    <h1>Vigilância em Saúde</h1>
+                    <p>Controle de Endemias - Matinhos/PR</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="https://www.instagram.com/secsaudematinhos" target="_blank" class="btn btn-social">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="mailto:endemiasmatinhos@gmail.com?subject=Denúncia de Foco do Mosquito" class="btn btn-warning btn-pulse">
+                    <i class="fas fa-exclamation-triangle"></i> Denunciar Foco
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#inicio"><i class="fas fa-home"></i> Início</a></li>
+            <li><a href="#acoes"><i class="fas fa-tasks"></i> Ações</a></li>
+            <li><a href="#doencas"><i class="fas fa-virus"></i> Doenças</a></li>
+            <li><a href="#prevencao"><i class="fas fa-shield-alt"></i> Prevenção</a></li>
+            <li><a href="#contato"><i class="fas fa-phone"></i> Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h2>Juntos contra o Aedes aegypti</h2>
+            <p>Mobilização comunitária pelo fim dos criadouros do mosquito transmissor da dengue, zika e chikungunya</p>
+            <a href="#acoes" class="btn btn-warning" style="background: white; color: #2980b9;">
+                <i class="fas fa-arrow-down"></i> Saiba Mais
+            </a>
+        </div>
+    </section>
+
+    <!-- Alert Banner -->
+    <div class="container">
+        <div class="alert-banner">
+            <h3><i class="fas fa-bullhorn"></i> Seu Papel Faz a Diferença!</h3>
+            <p>Cada morador é essencial na luta contra o mosquito. Denuncie locais de risco, participe das campanhas e mantenha seu bairro limpo.</p>
+            <a href="mailto:endemiasmatinhos@gmail.com?subject=Denúncia" class="btn" style="background: white; color: #ff6b6b;">
+                <i class="fas fa-envelope"></i> Fazer Denúncia Agora
+            </a>
+        </div>
+
+        <!-- Ações Section -->
+        <section id="acoes">
+            <h2 style="font-size: 36px; margin-bottom: 30px; color: #2c3e50; text-align: center;">
+                <i class="fas fa-calendar-check"></i> Ações em Andamento
+            </h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-broom"></i></div>
+                    <h3>Mutirão de Limpeza</h3>
+                    <p><strong>Bairro Tabuleiro</strong></p>
+                    <p>Ação comunitária para eliminação de criadouros do mosquito Aedes aegypti.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-trash-alt"></i></div>
+                    <h3>Coleta de Resíduos Volumosos</h3>
+                    <p>Confira os pontos fixos de coleta no município para descarte adequado.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Índices de Infestação</h3>
+                    <p>Atualização semanal dos índices de infestação do Aedes aegypti em Matinhos.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Doenças Section -->
+        <section id="doencas">
+            <h2 style="font-size: 36px; margin-bottom: 30px; color: #2c3e50; text-align: center;">
+                <i class="fas fa-disease"></i> Doenças Transmitidas pelo Aedes aegypti
+            </h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-thermometer-half"></i></div>
+                    <h3>Dengue</h3>
+                    <p><strong>Sintomas principais:</strong></p>
+                    <ul>
+                        <li>Febre alta (39° a 40°C)</li>
+                        <li>Dores musculares e articulares intensas</li>
+                        <li>Dor de cabeça e atrás dos olhos</li>
+                        <li>Manchas vermelhas na pele</li>
+                        <li>Náuseas e vômitos</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-baby"></i></div>
+                    <h3>Zika</h3>
+                    <p><strong>Sintomas principais:</strong></p>
+                    <ul>
+                        <li>Febre baixa ou ausente</li>
+                        <li>Manchas vermelhas na pele com coceira</li>
+                        <li>Dor nas articulações</li>
+                        <li>Conjuntivite</li>
+                        <li>Risco para gestantes (microcefalia)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-hands"></i></div>
+                    <h3>Chikungunya</h3>
+                    <p><strong>Sintomas principais:</strong></p>
+                    <ul>
+                        <li>Febre alta de início súbito</li>
+                        <li>Dores intensas nas articulações</li>
+                        <li>Dor de cabeça e muscular</li>
+                        <li>Manchas vermelhas na pele</li>
+                        <li>Dores podem durar meses</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prevenção Section -->
+        <section id="prevencao">
+            <h2 style="font-size: 36px; margin-bottom: 30px; color: #2c3e50; text-align: center;">
+                <i class="fas fa-shield-virus"></i> Como Prevenir
+            </h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-tint"></i></div>
+                    <h3>Elimine Água Parada</h3>
+                    <ul>
+                        <li>Tampe caixas d'água e cisternas</li>
+                        <li>Lave bebedouros de animais semanalmente</li>
+                        <li>Retire água de pratos de vasos de plantas</li>
+                        <li>Guarde pneus em locais cobertos</li>
+                        <li>Limpe calhas regularmente</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-home"></i></div>
+                    <h3>Proteja sua Casa</h3>
+                    <ul>
+                        <li>Use telas em janelas e portas</li>
+                        <li>Mantenha o lixo tampado</li>
+                        <li>Vede ralos e tanques</li>
+                        <li>Não acumule entulho</li>
+                        <li>Faça vistoria semanal no quintal</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-users"></i></div>
+                    <h3>Mobilize a Comunidade</h3>
+                    <ul>
+                        <li>Participe dos mutirões de limpeza</li>
+                        <li>Denuncie focos do mosquito</li>
+                        <li>Oriente vizinhos e familiares</li>
+                        <li>Receba os agentes de saúde</li>
+                        <li>Compartilhe informações</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Info Section -->
+    <div class="info-section">
+        <div class="info-content">
+            <h2><i class="fas fa-user-md"></i> Quem Somos</h2>
+            <p style="text-align: center; font-size: 18px; color: #555; max-width: 800px; margin: 0 auto;">
+                Acompanhe as ações da Vigilância em Saúde, Agentes de Combate a Endemias e Agentes Comunitários de Saúde de Matinhos. 
+                Trabalhamos diariamente para prevenir e controlar doenças transmitidas pelo mosquito Aedes aegypti, 
+                promovendo a saúde e o bem-estar da população.
+            </p>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contato">
+        <div class="contact-content">
+            <h2><i class="fas fa-comments"></i> Entre em Contato</h2>
+            <p style="font-size: 18px; margin-bottom: 20px;">
+                Vigilância Ambiental – Secretaria Municipal de Saúde de Matinhos
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>E-mail</strong><br>
+                        <a href="mailto:endemiasmatinhos@gmail.com">endemiasmatinhos@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Telefone</strong><br>
+                        <a href="tel:08003971610">0800-3971-610</a> (Ramal 839)
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <div>
+                        <strong>Instagram</strong><br>
+                        <a href="https://www.instagram.com/secsaudematinhos" target="_blank">@secsaudematinhos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Vigilância em Saúde - Controle de Endemias</strong></p>
+        <p>Prefeitura Municipal de Matinhos - Paraná</p>
+        <p>© 2025 - Todos os direitos reservados</p>
+    </footer>
+</body>
+</html>
